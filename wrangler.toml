@@ -1,0 +1,6 @@
+name = "stud1o-labs"
+compatibility_date = "2026-07-02"
+
+[assets]
+directory = "./Demo"
+binding = "ASSETS"
