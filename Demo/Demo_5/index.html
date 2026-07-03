@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinvault | Demo FinTech Engine</title>
+  <!-- Google Fonts Outfit for modern heavy variable typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+
+  <!-- Main Background Effects -->
+  <div class="glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <!-- Consent Management Platform (CMP) Banner -->
+  <div id="cmp-banner" class="cmp-banner">
+    <div class="cmp-content">
+      <div class="cmp-text">
+        <h3>Airtight Privacy Control</h3>
+        <p>This platform uses security-essential telemetry. In accordance with sovereign regulations, you have full control over optional analytical modules.</p>
+      </div>
+      <div class="cmp-actions">
+        <button id="cmp-reject" class="cmp-btn">Reject All</button>
+        <button id="cmp-accept" class="cmp-btn">Accept All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WebAuthn Hardware Attestation Modal -->
+  <div id="auth-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="security-shield">🛡️</div>
+        <h2>WebAuthn Authentication</h2>
+        <p class="subtitle">Hardware Token Attestation Required</p>
+      </div>
+      <div class="modal-body">
+        <div class="attestation-graphic">
+          <div class="key-ring"></div>
+          <div class="key-sensor"></div>
+        </div>
+        <p id="attestation-status">Waiting for security token or Passkey touch...</p>
+        <div class="progress-bar-container">
+          <div id="attestation-progress" class="progress-bar"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel-auth" class="modal-btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-accent">TWIN</span>VAULT
+    </div>
+    <div class="nav-links">
+      <span class="version-tag">v2.6.0-stable (June, 2026)</span>
+      <button id="theme-toggle" class="nav-icon-btn" aria-label="Toggle Theme">🌓</button>
+      <button id="nav-portal-btn" class="nav-btn-primary">Enterprise Portal</button>
+    </div>
+  </nav>
+
+  <!-- Public Marketing View -->
+  <main id="public-view" class="view-section">
+    <header class="hero-section">
+      <h1 class="hero-title">The B2B FinTech Engine <br><span class="gradient-text">Reimagined.</span></h1>
+      <p class="hero-subtitle">High-frequency settlement meets hardware-backed transaction isolation and sovereign data compliance.</p>
+      <div class="hero-actions">
+        <button id="hero-enter-btn" class="btn-large">Access Gated Portal</button>
+      </div>
+    </header>
+
+    <!-- Public Features Grid -->
+    <section class="features-grid">
+      <div class="feature-card">
+        <h3>Multi-Factor Hardware Attestation</h3>
+        <p>Enforces zero-trust WebAuthn/Passkey registration directly via hardware keys, preventing credential interception.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Siloed Relational Matrix</h3>
+        <p>Architectural separation of public-facing endpoints and backend ledger matrices shields core nodes from XSS/CSRF vectors.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Column-Level AES-256-GCM</h3>
+        <p>Balances, routing paths, and client data elements are encrypted prior to database writing, decryptable only in isolated client sessions.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Gated Portal View (Initially Hidden) -->
+  <section id="portal-view" class="view-section hidden">
+    <div class="dashboard-header">
+      <div>
+        <h1>Enterprise Ledger Dashboard</h1>
+        <p class="subtitle">Silo ID: <span class="monospaced text-highlight">SILO-US-EAST-09A (Active Zone)</span></p>
+      </div>
+      <div class="dashboard-actions">
+        <button id="logout-btn" class="btn-secondary">Disconnect Portal</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Main Grid -->
+    <div class="dashboard-grid">
+      
+      <!-- Column-Level Encryption Visualizer -->
+      <section class="db-card visualizer-card">
+        <div class="card-header">
+          <h2>Ledger Transactions</h2>
+          <div class="toggle-container">
+            <span class="toggle-label">AES-256-GCM Encrypted Mode</span>
+            <label class="switch">
+              <input type="checkbox" id="encryption-toggle" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Sender Account</th>
+                <th>Recipient Routing</th>
+                <th>Amount (USD)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+        <div class="encryption-key-badge">
+          <span class="badge-label">Active Key:</span>
+          <span class="badge-value monospaced">GCM_KDF_2026_JUN_V2</span>
+        </div>
+      </section>
+
+      <!-- SIEM Telemetry Logs -->
+      <section class="db-card siem-card">
+        <div class="card-header">
+          <h2>AI SIEM Telemetry & Threat Logs</h2>
+          <span class="badge-pulse">Live Tracking</span>
+        </div>
+        <div class="siem-console">
+          <div id="siem-logs" class="logs-container monospaced">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Sovereign Compliance & Data Policy Dashboard -->
+      <section class="db-card compliance-card">
+        <div class="card-header">
+          <h2>Sovereign Data & Compliance Residency</h2>
+        </div>
+        <div class="compliance-body">
+          <div class="residency-selector-group">
+            <label for="residency-select">Sovereign Data Storage Zone:</label>
+            <select id="residency-select" class="styled-select">
+              <option value="us">US East (Northern Virginia) - FedRAMP Compliant</option>
+              <option value="eu">EU West (Dublin, Ireland) - GDPR / Sovereign Locked</option>
+              <option value="sg">AP South (Singapore) - PDPA Compliant</option>
+            </select>
+            <p class="hint-text">Data is instantly migrated and bound to local physical disk partitions in selected region.</p>
+          </div>
+
+          <div class="compliance-badges">
+            <span class="c-badge">GDPR Compliant</span>
+            <span class="c-badge">CCPA Audited</span>
+            <span class="c-badge">PCI-DSS Level 1</span>
+          </div>
+
+          <div class="dsar-actions">
+            <h3>Subject Rights Dashboard (DSAR)</h3>
+            <div class="btn-group">
+              <button id="dsar-download" class="btn-action">Download My Data (DSAR)</button>
+              <button id="dsar-forget" class="btn-action danger">Execute "Right to Be Forgotten"</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-container">
+    <div>Twinvault Systems. Copyright © June, 2026. All rights reserved.</div>
+    <div>Sovereign Compliant System Platform v2.6 // Secure Matrix Node</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

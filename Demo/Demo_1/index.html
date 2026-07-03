@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinvault // Cute-alist E-Com App Store</title>
+  <!-- Google Fonts Outfit & Space Grotesk for bold brutalist look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Symmetrical Split Cookie Banner -->
+  <div id="vibe-cookie-banner" class="split-cookie-banner">
+    <div class="split-panel incognito-side">
+      <h2>Keep It Incognito</h2>
+      <p>Lock down your profile. We won't track your vibe, analyze your purchases, or reward your activity. Strictly offline. Locked for 6 months.</p>
+      <button id="cookie-incognito" class="split-cookie-btn">Keep It Incognito</button>
+    </div>
+    <div class="split-panel track-side">
+      <h2>Track My Vibe</h2>
+      <p>Share your style insights. Toggling this on lets us tailormake your editorial stream and credit your account with custom rewards. Locked for 6 months.</p>
+      <button id="cookie-track" class="split-cookie-btn">Track My Vibe</button>
+    </div>
+  </div>
+
+  <!-- Marquee Header / Kinetic Typography -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      ✦ CYBER-SECURED CUTE-ALIST APP STORE ✦ NO CAPTCHAs HERE ✦ BEHAVIORAL BOT DETECTION ACTIVE ✦ JUNE 2026 EDITION ✦ SHOP PRIVATE, SHOP LOUD ✦
+    </div>
+  </div>
+
+  <!-- Main Grid Layout -->
+  <div class="zine-grid">
+    
+    <!-- Editorial Sidebar / Brand Manifesto -->
+    <aside class="zine-sidebar border-box">
+      <div class="sticker-container">
+        <!-- Custom hand-drawn style sticker (SVG) -->
+        <svg class="hand-drawn-sticker" viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="50" cy="50" r="45" fill="#ff007f" stroke="#000" stroke-width="4"/>
+          <path d="M 30,45 A 5,5 0 0,1 40,45" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+          <path d="M 60,45 A 5,5 0 0,1 70,45" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+          <path d="M 30,65 Q 50,85 70,65" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <svg class="hand-drawn-sticker-star" viewBox="0 0 100 100" width="70" height="70">
+          <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#00ffcc" stroke="#000" stroke-width="4"/>
+        </svg>
+      </div>
+      
+      <h1 class="logo">Twinvault</h1>
+      <p class="manifesto">
+        Welcome to the zine-style editorial hub where app-shopping meets cute brutalist grids. No annoying puzzles or CAPTCHAs. 
+        We watch your cursor's smooth flow to ensure you're human. You control your data. Earn points by unlocking your vault.
+      </p>
+
+      <div class="zine-issue-tag">
+        <span>ISSUE #06 // JUNE, 2026</span>
+      </div>
+    </aside>
+
+    <!-- App Products Catalog -->
+    <main class="zine-main">
+      <div class="section-title-box">
+        <h2>CURATED APPS // ISSUE 06</h2>
+      </div>
+
+      <!-- Staggered Horizontal Scrollway -->
+      <div class="horizontal-scrollway">
+        
+        <div class="product-card border-box" data-id="1" data-name="CryptoKitty Vault" data-desc="A decentralized password keychain hidden inside a cute retro virtual pet simulator. Features automatic credential backup to IPFS." data-price="$4.99">
+          <div class="product-sticker">🔐</div>
+          <h3>CryptoKitty Vault</h3>
+          <p class="product-cat">Category: Security / Lifestyle</p>
+          <div class="price-row">
+            <span class="price">$4.99</span>
+            <button class="buy-btn">Inspect</button>
+          </div>
+        </div>
+
+        <div class="product-card border-box" data-id="2" data-name="PixelPurr Firewall" data-desc="An interactive retro-gaming overlay that filters suspicious outbound API queries. It makes packet analysis feel like a 90s shooter." data-price="FREE">
+          <div class="product-sticker">🐱</div>
+          <h3>PixelPurr WAF</h3>
+          <p class="product-cat">Category: Utilities</p>
+          <div class="price-row">
+            <span class="price">FREE</span>
+            <button class="buy-btn">Inspect</button>
+          </div>
+        </div>
+
+        <div class="product-card border-box" data-id="3" data-name="NeonGrid VPN" data-desc="A high-contrast onion-routing proxy that dynamically shifts your location footprint while providing aesthetic background vibes." data-price="$2.00">
+          <div class="product-sticker">📟</div>
+          <h3>NeonGrid VPN</h3>
+          <p class="product-cat">Category: Network</p>
+          <div class="price-row">
+            <span class="price">$2.00</span>
+            <button class="buy-btn">Inspect</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cascading Modals Container -->
+      <div id="modal-stack" class="modal-stack">
+        <!-- Dynamic modals will stack here -->
+      </div>
+
+      <!-- Security Dashboard: Behavioral Bot Mitigation (WAF) & Gamified Data Vault -->
+      <div class="cyber-dashboard border-box">
+        <div class="dash-section bot-mitigation">
+          <h3>⚡ Behavioral WAF Live Attestation</h3>
+          <p class="dash-desc">Our WAF analyzes cursor speed, direction deviation, and click delay. No CAPTCHA required.</p>
+          
+          <div class="waf-visualizer">
+            <div class="metric">
+              <span class="m-label">Cursor Velocity</span>
+              <span id="waf-velocity" class="m-value monospaced">0 px/s</span>
+            </div>
+            <div class="metric">
+              <span class="m-label">Deviations</span>
+              <span id="waf-dev" class="m-value monospaced">0</span>
+            </div>
+            <div class="metric text-highlight">
+              <span class="m-label">Bot Probability</span>
+              <span id="waf-probability" class="m-value monospaced">Calculating...</span>
+            </div>
+          </div>
+          <div class="waf-bar-bg">
+            <div id="waf-bar" class="waf-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="dash-section data-vault">
+          <h3>🔑 Gamified Data Vault</h3>
+          <p class="dash-desc">Toggle the attributes of your style profile you want to rent to our network in exchange for rewards credit.</p>
+          
+          <div class="vault-grid">
+            <div class="vault-item">
+              <label class="vault-checkbox-container">
+                <input type="checkbox" id="vault-style" class="vault-toggle">
+                <span class="vault-label">Style Profile (+30 pts)</span>
+              </label>
+            </div>
+            <div class="vault-item">
+              <label class="vault-checkbox-container">
+                <input type="checkbox" id="vault-purchase" class="vault-toggle">
+                <span class="vault-label">Purchase History (+50 pts)</span>
+              </label>
+            </div>
+            <div class="vault-item">
+              <label class="vault-checkbox-container">
+                <input type="checkbox" id="vault-search" class="vault-toggle">
+                <span class="vault-label">Search Log (+20 pts)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="points-indicator">
+            <span class="pts-label">Total Points Earned:</span>
+            <span id="pts-count" class="pts-val monospaced">0 PTS</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="zine-footer border-box">
+    <div>Twinvault APPS // STACKED SECURITY & CUTE-ALISM // JUNE, 2026</div>
+    <div class="monospaced">Session Integrity Level: 99.8% // No Bots Allowed</div>
+    <div class="attribution">Created by Yezid — Twinvault</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

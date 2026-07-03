@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinvault // Hyper-Local P2P Co-Op</title>
+  <!-- Google Fonts Outfit & Playfair Display for organic/human feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Cookie Indicator -->
+  <div id="ambient-cookie-indicator" class="ambient-indicator-container">
+    <button id="ambient-trigger" class="ambient-trigger-btn" aria-label="Privacy Settings">
+      🌱 <span class="badge-dot-off"></span>
+    </button>
+    <div id="ambient-expanded" class="ambient-expanded-card hidden">
+      <h3>Ambient Privacy</h3>
+      <p>All mapping tracking is <strong>Off</strong> by default. Toggle below to enable temporary localized geo-routing.</p>
+      <label class="switch-row">
+        <span>Enable Localized Mapping Cookies</span>
+        <input type="checkbox" id="cookie-geo-toggle">
+      </label>
+      <p class="status-note text-highlight">Status: Cookie-Free Browsing</p>
+    </div>
+  </div>
+
+  <div class="organic-wrapper">
+    
+    <!-- Header -->
+    <header class="organic-header">
+      <div class="brand-group">
+        <span class="logo-leaf">🌱</span>
+        <h1 class="brand-title">Twinvault</h1>
+      </div>
+      <p class="brand-tagline">A decentralized co-op mapping dashboard for organic farmers and neighborhoods.</p>
+      <div class="audit-date monospaced">June, 2026 // Node: Earth-Zone-04</div>
+    </header>
+
+    <!-- Main Content Layout (Shallow Peer-to-Peer dashboard) -->
+    <main class="grid-dashboard">
+      
+      <!-- Centralized Map Vector Card -->
+      <section class="organic-card map-card">
+        <h2>Local Co-Op Vectors</h2>
+        <p class="card-desc">Click map nodes to discover local micro-farms and calendar shares. (Requires mapping cookie toggle to reveal coordinates).</p>
+        
+        <div class="map-vector-container">
+          <!-- SVG Stylized Organic Map -->
+          <svg id="vector-map" viewBox="0 0 400 300" class="vector-map-graphic">
+            <!-- Simulated Map Paths -->
+            <path d="M 20,80 Q 80,120 180,90 T 380,140" fill="none" stroke="#d5c3aa" stroke-width="6" stroke-dasharray="8 4"/>
+            <path d="M 100,20 Q 140,150 220,280" fill="none" stroke="#d5c3aa" stroke-width="4" stroke-linecap="round"/>
+            
+            <!-- Organic Map Vector Nodes -->
+            <g class="map-node" data-name="Meadowbrook Honey Co-Op" data-loc="Vector 43.1, -79.4">
+              <circle cx="120" cy="100" r="14" fill="#e29578" class="map-dot"/>
+              <text x="120" y="80" class="map-label">Meadowbrook</text>
+            </g>
+            
+            <g class="map-node" data-name="Oak Creek Organic Orchard" data-loc="Vector 43.5, -79.1">
+              <circle cx="280" cy="160" r="14" fill="#a3b18a" class="map-dot"/>
+              <text x="280" y="140" class="map-label">Oak Creek</text>
+            </g>
+
+            <g class="map-node" data-name="Sage Crest Herb Hub" data-loc="Vector 42.9, -79.8">
+              <circle cx="190" cy="220" r="14" fill="#a3b18a" class="map-dot"/>
+              <text x="190" y="200" class="map-label">Sage Crest</text>
+            </g>
+          </svg>
+          
+          <div id="map-info-box" class="map-info-box hidden">
+            <h4>Oak Creek Organic Orchard</h4>
+            <p id="map-node-coords" class="monospaced">Coords Locked (Cookies Off)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Decentralized Cryptographic DID Card -->
+      <section class="organic-card did-card">
+        <h2>DID Cryptographic Identity</h2>
+        <p class="card-desc">Generate your asymmetric keypair profile. We house zero data; your profile card resides exclusively in your device storage.</p>
+        
+        <div class="did-form-group">
+          <label for="did-username">Co-Op Username:</label>
+          <input type="text" id="did-username" placeholder="e.g. SageSprout" class="organic-input">
+          
+          <button id="generate-did-btn" class="organic-btn">Generate Keypair Card</button>
+        </div>
+
+        <div id="did-output-panel" class="did-profile-badge hidden">
+          <div class="badge-head">
+            <span class="did-badge-leaf">🌾</span>
+            <h4>Active DID Card</h4>
+          </div>
+          <div class="did-details monospaced">
+            <div><span class="lbl">ID:</span> <span id="did-id-string">did:human:e9a8f...d3c2</span></div>
+            <div><span class="lbl">Public Key:</span> <span class="key-truncate">ed25519:9f7d...3a2b</span></div>
+            <div><span class="lbl">Storage:</span> Device (IndexedDB)</div>
+          </div>
+          <button id="export-did-btn" class="export-btn">Download Key Card (.json)</button>
+        </div>
+      </section>
+
+      <!-- "We Can't Sell What We Don't See" Manifesto -->
+      <section class="organic-card manifesto-card full-width">
+        <div class="manifesto-grid">
+          <div class="manifesto-text">
+            <h2>"We Can't Sell What We Don't See"</h2>
+            <p class="italic-lead">Twinvault is not a harvesting machine. It is a simple routing utility.</p>
+            <p>
+              By utilizing client-side cryptographic keys (DID) and processing geolocations solely within sandboxed browser session states, 
+              we completely eradicate central databases. Your local updates are routed directly to neighbors, never compiled, profiled, or sold.
+            </p>
+          </div>
+          
+          <div class="p2p-diagram">
+            <h3>Direct Peer-to-Peer Data Flow</h3>
+            <div class="diag-nodes">
+              <div class="diag-node-item">
+                <span class="node-emoji">👩‍🌾</span>
+                <span class="node-name">You</span>
+              </div>
+              <div class="diag-arrow">⇄</div>
+              <div class="diag-node-item hub-node">
+                <span class="node-emoji">🌱</span>
+                <span class="node-name">Layer Router</span>
+              </div>
+              <div class="diag-arrow">⇄</div>
+              <div class="diag-node-item">
+                <span class="node-emoji">👨‍🌾</span>
+                <span class="node-name">Neighbor</span>
+              </div>
+            </div>
+            <p class="diag-caption">The Layer Router never caches your data. Traffic streams end-to-end.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="organic-footer">
+      <div>Twinvault // Decentralized Local Network // June, 2026</div>
+      <div class="attribution">Created by Yezid — Twinvault</div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

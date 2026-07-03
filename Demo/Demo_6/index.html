@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Design & Compliance Architecture Demo</title>
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts for diverse typography styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        /* Smooth transitions for switching themes live */
+        .sandbox-canvas { transition: all 0.5s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col">
+
+    <!-- DEMO HEADER & PRESENTATION CONTROLS -->
+    <header class="bg-slate-900 border-b border-slate-800 p-6 sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                    <span class="flex h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Interactive Framework Live Showcase
+                </h1>
+                <p class="text-xs text-slate-400 mt-1">Click the modes below to dynamically transform the design, privacy, and security architecture.</p>
+            </div>
+            
+            <!-- CONTROLLER TABS -->
+            <nav class="flex flex-wrap gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                <button onclick="switchDemo('fintech')" id="btn-fintech" class="px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 text-white transition-all">
+                    1. FinTech Engine
+                </button>
+                <button onclick="switchDemo('ecommerce')" id="btn-ecommerce" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+                    2. E-Com App Store
+                </button>
+                <button onclick="switchDemo('productivity')" id="btn-productivity" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+                    3. Productivity SPA
+                </button>
+                <button onclick="switchDemo('community')" id="btn-community" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+                    4. Local Community
+                </button>
+                <button onclick="switchDemo('web3')" id="btn-web3" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+                    5. Web3 Canvas
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN DISPLAY CONTENT -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 flex flex-col gap-8">
+        
+        <!-- LIVE ARCHITECTURE INFO BADGES -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-slate-900/50 border border-slate-800/80 p-4 rounded-xl">
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Current Structure</span>
+                <span id="meta-structure" class="text-sm font-medium text-slate-200">Siloed Relational Matrix</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Active Security</span>
+                <span id="meta-security" class="text-sm font-medium text-slate-200">Hardware Passkeys & SIEM</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Privacy Model</span>
+                <span id="meta-privacy" class="text-sm font-medium text-slate-200">Sovereign Data Residency</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Cookie Framework</span>
+                <span id="meta-cookies" class="text-sm font-medium text-slate-200">Pre-interaction Block (Symmetric Weights)</span>
+            </div>
+        </section>
+
+        <!-- THE LIVE INTERACTIVE CONTAINER -->
+        <section id="sandbox" class="sandbox-canvas flex-1 min-h-[500px] rounded-2xl border bg-slate-900 border-indigo-500/30 p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+            
+            <!-- INSIDE: Theme Content Engine -->
+            <div id="demo-body" class="max-w-3xl space-y-6">
+                <!-- Dynamic Content Loaded Here via JavaScript -->
+            </div>
+
+            <!-- INSIDE: Dynamic Contextual Security Widget -->
+            <div id="security-widget" class="mt-12 max-w-md bg-slate-950/80 border border-slate-800 p-4 rounded-xl backdrop-blur-md">
+                <!-- Dynamic Content Loaded Here -->
+            </div>
+
+            <!-- INSIDE: Dynamic Cookie Consent Banner Simulation -->
+            <div id="cookie-banner" class="absolute bottom-6 left-6 right-6 max-w-xl mx-auto shadow-2xl z-40 transition-all duration-300">
+                <!-- Dynamic Content Loaded Here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- LIVE SWITCHING LOGIC SCRIPT -->
+    <script>
+        const demos = {
+            fintech: {
+                name: "1. B2B Enterprise FinTech Engine",
+                canvasClass: "bg-slate-950 border-indigo-500/40 text-slate-100 font-['Plus_Jakarta_Sans']",
+                structure: "Siloed Relational Matrix (Isolated User Portal)",
+                security: "WebAuthn Hardware Attestation + SIEM AI Telemetry",
+                privacy: "Sovereign Compliance (Strict Local Data Residency)",
+                cookies: "Airtight Consent Platform (Pre-interaction Blocked)",
+                body: `
+                    <div class="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase border border-indigo-500/20">Institutional Grade</div>
+                    <h2 class="text-4xl font-extrabold tracking-tight text-white">Cross-Border Settlement Terminal</h2>
+                    <p class="text-slate-400 leading-relaxed max-w-xl">Experience zero-latency institutional capital routing secured by quantum-resistant database column encryption.</p>
+                    <div class="flex gap-4">
+                        <button class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg shadow-indigo-600/20 transition-all">Initialize Ledger Access</button>
+                        <button class="bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold text-sm px-6 py-3 rounded-lg border border-slate-800 transition-all">Audit Policies</button>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="flex items-start gap-3">
+                        <div class="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">🛡️</div>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">SIEM Core Log</h4>
+                            <p class="text-xs font-mono text-emerald-400 mt-1">● Dynamic Token Signature: VALID [AES-256-GCM]</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Hardware Attestation Key handshake succeeded via secure enclave.</p>
+                        </div>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-xs text-slate-400 max-w-sm">We process operational metrics. Non-essential tracking scripts are restricted until you explicitly grant matching corporate data permissions.</div>
+                        <div class="flex gap-2 shrink-0">
+                            <button onclick="closeBanner()" class="bg-indigo-600 text-white font-bold text-xs px-4 py-2 rounded">Accept All</button>
+                            <button onclick="closeBanner()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs px-4 py-2 rounded">Reject All</button>
+                        </div>
+                    </div>
+                `
+            },
+            ecommerce: {
+                name: "2. The E-Commerce App Store",
+                canvasClass: "bg-amber-50 border-black text-black font-['Space_Grotesk'] border-4",
+                structure: "Zine-Style Editorial Hub (Dynamic Overlay Grids)",
+                security: "WAF API Shielding + Behavioral Cursor Analytics",
+                privacy: "Gamified Ownership (Interactive Data Vault)",
+                cookies: "Symmetrical Split Screen (Brand Tone Language)",
+                body: `
+                    <div class="inline-flex items-center gap-2 bg-lime-400 border-2 border-black text-black px-3 py-1 font-bold text-xs uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">HOT DROPS 🔥</div>
+                    <h2 class="text-5xl font-bold tracking-tight uppercase leading-none">CULTURE OVER COMMERCE.</h2>
+                    <p class="text-neutral-800 font-medium max-w-xl text-lg">Radical aesthetics meets next-generation consumer digital goods. Zero bots. Pure human expression.</p>
+                    <div class="flex gap-4">
+                        <button class="bg-black text-white hover:bg-neutral-900 font-bold text-sm px-6 py-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(163,230,53,1)] transition-all">Copped Your Vibe</button>
+                        <button class="bg-white text-black font-bold text-sm px-6 py-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">Browse Vault</button>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="flex items-start gap-3 border-2 border-black bg-white p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                        <div class="text-xl">🤖</div>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500">Anti-Scalp Status</h4>
+                            <p class="text-xs font-bold text-neutral-900 mt-1">Velocity Engine: Human Behavior Confirmed</p>
+                            <p class="text-[11px] text-neutral-600">Dynamic tracking verified organic cursor vectors. CAPTCHA unnecessary.</p>
+                        </div>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-lime-300 border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-center gap-6">
+                        <div class="text-sm font-bold text-black flex-1">Track your style frequency or stay fully invisible? Both ways work smoothly for us.</div>
+                        <div class="flex gap-4 w-full md:w-auto shrink-0">
+                            <button onclick="closeBanner()" class="bg-black text-white font-bold text-xs px-6 py-3 border-2 border-black tracking-wider uppercase flex-1 text-center">Track My Vibe</button>
+                            <button onclick="closeBanner()" class="bg-white text-black font-bold text-xs px-6 py-3 border-2 border-black tracking-wider uppercase flex-1 text-center">Keep Incognito</button>
+                        </div>
+                    </div>
+                `
+            },
+            productivity: {
+                name: "3. High-End Productivity Platform",
+                canvasClass: "bg-zinc-50 border-zinc-200 text-zinc-900 font-['Inter'] shadow-inner",
+                structure: "Single-Page Application (SPA) with Fluid Infinite Canvas",
+                security: "Zero-Trust Client-Side Sandbox Storage Isolation",
+                privacy: "Zero-Retention Core Data Processing Model",
+                cookies: "Zero-Footprint Anonymized Server-Side Log (No Banner Required)",
+                body: `
+                    <div class="inline-flex items-center gap-1.5 text-zinc-500 text-xs font-medium tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-zinc-400"></span> Focused Interface
+                    </div>
+                    <h2 class="text-4xl font-light tracking-tight text-zinc-900">Write fluidly. Think beautifully.</h2>
+                    <p class="text-zinc-500 max-w-md text-sm leading-relaxed">A pristine ecosystem focused on clean output. No tracking networks, external ad platforms, or distraction layers.</p>
+                    <div>
+                        <button class="bg-zinc-950 text-white hover:bg-zinc-800 text-xs font-medium px-5 py-2.5 rounded transition-all">Launch Document Canvas</button>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="flex items-start gap-3 bg-white border border-zinc-200 p-4 rounded-lg shadow-sm">
+                        <div class="text-zinc-400">⚙️</div>
+                        <div>
+                            <h4 class="text-xs font-semibold text-zinc-400">Sandbox Isolation</h4>
+                            <p class="text-xs font-medium text-zinc-800 mt-0.5">Encrypted Client Side Processing Active</p>
+                            <p class="text-[11px] text-zinc-400 mt-0.5">Documents remain isolated in local volatile browser memory space.</p>
+                        </div>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-zinc-950 text-white p-3 px-4 rounded-full shadow-lg flex items-center justify-between gap-6 max-w-sm mx-auto">
+                        <div class="text-[11px] text-zinc-400">✨ <strong>100% Cookie Free:</strong> Zero tracking files set.</div>
+                        <button onclick="closeBanner()" class="text-[10px] uppercase font-bold text-white tracking-widest bg-zinc-800 px-2 py-1 rounded">Dismiss</button>
+                    </div>
+                `
+            },
+            community: {
+                name: "4. Hyper-Local Community Platform",
+                canvasClass: "bg-stone-100 border-emerald-800/20 text-emerald-950 font-['Fraunces']",
+                structure: "Flat, Decentralized Peer-to-Peer Map Coordinates",
+                security: "Decentralized Cryptographic Identity Vectors (DID)",
+                privacy: "Zero Centralized Harvesting Manifesto Framework",
+                cookies: "Ambient Corner Toggle / Pure Opt-in Real-time Mapping",
+                body: `
+                    <div class="text-emerald-800 italic text-sm font-medium">Roots & Gatherings</div>
+                    <h2 class="text-4xl font-bold tracking-tight text-emerald-900">The Neighborhood Cooperative</h2>
+                    <p class="text-stone-600 max-w-xl text-base font-serif leading-relaxed">Direct links to local farms, seed distributions, and community kitchen scheduling hubs, built entirely on community-owned protocols.</p>
+                    <div>
+                        <button class="bg-emerald-800 hover:bg-emerald-900 text-white font-medium text-sm px-6 py-3 rounded-full transition-all">Explore Local Map Grid</button>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="bg-white/60 border border-emerald-800/10 p-4 rounded-xl">
+                        <h4 class="text-xs uppercase tracking-wider text-emerald-800 font-bold font-sans">Identity Key Verified</h4>
+                        <p class="text-xs font-mono text-emerald-900 mt-1">Profile: Local Encrypted Identifier [IndexedDB]</p>
+                        <p class="text-[11px] text-stone-500 font-sans mt-0.5">No names or core contact registries are logged inside centralized data banks.</p>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-white border border-emerald-800/20 p-4 rounded-xl shadow-xl max-w-xs ml-auto flex items-center gap-3">
+                        <span class="flex h-2 w-2 rounded-full bg-emerald-600"></span>
+                        <div class="text-xs text-stone-600 flex-1">Cookies are disabled. Toggle map tracking only if you need local directions.</div>
+                        <button onclick="closeBanner()" class="text-xs underline text-emerald-800 font-bold shrink-0">Enable</button>
+                    </div>
+                `
+            },
+            web3: {
+                name: "5. Interactive Web3 Creative Portfolio",
+                canvasClass: "bg-slate-950 border-cyan-500/30 text-cyan-400 font-mono",
+                structure: "Linear Narrative Dynamic Storytelling WebGL Scroller",
+                security: "Verified Webhook Hardening + Direct CORS Origin Lock",
+                privacy: "Decoupled Cryptographic Wallet Core Architecture",
+                cookies: "100% Tracking-Free Dashboard Header Badge Placement",
+                body: `
+                    <div class="text-xs uppercase text-cyan-500 tracking-widest">[ RENDER SYSTEM ALPHA ]</div>
+                    <h2 class="text-3xl font-bold uppercase tracking-wider text-white">We Shape Digital Spaces.</h2>
+                    <p class="text-slate-400 max-w-md font-sans text-sm leading-relaxed">Pushing creative boundaries via WebGL viewports, dynamic audio nodes, and programmatic layout generation.</p>
+                    <div class="inline-flex gap-4">
+                        <button class="border border-cyan-500/50 hover:bg-cyan-500/10 text-cyan-400 text-xs px-4 py-3 tracking-widest uppercase transition-all">Execute Sequence</button>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="border border-cyan-500/20 bg-slate-900/50 p-3 text-xs">
+                        <span class="text-cyan-500 font-bold">> SECURITY PROTOCOLS LOCKED</span>
+                        <div class="text-[10px] text-slate-500 mt-1">Cross-Origin Resource Sharing [CORS]: Strict Target Lock Enforced. External script inject risk: 0.00%</div>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-cyan-950/90 border border-cyan-500 p-2 text-center text-xs tracking-wide text-cyan-300 font-bold">
+                        ⚡ VERIFIED ENVIRONMENT: 100% DATA HARVEST AND MARKETING COOKIE FREE
+                    </div>
+                `
+            }
+        };
+
+        function switchDemo(key) {
+            const demo = demos[key];
+            const sandbox = document.getElementById('sandbox');
+            
+            // 1. Reset and Update Active Button Highlights
+            ['fintech', 'ecommerce', 'productivity', 'community', 'web3'].forEach(k => {
+                const btn = document.getElementById(`btn-${k}`);
+                if (k === key) {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 text-white transition-all";
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
+                }
+            });
+
+            // 2. Clear old CSS canvas styles, then inject new ones
+            sandbox.className = "sandbox-canvas flex-1 min-h-[500px] rounded-2xl border p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl " + demo.canvasClass;
+            
+            // 3. Inject Content Templates
+            document.getElementById('demo-body').innerHTML = demo.body;
+            document.getElementById('security-widget').innerHTML = demo.securityWidget;
+            
+            // 4. Update Header Meta Labels
+            document.getElementById('meta-structure').innerText = demo.structure;
+            document.getElementById('meta-security').innerText = demo.security;
+            document.getElementById('meta-privacy').innerText = demo.privacy;
+            document.getElementById('meta-cookies').innerText = demo.cookies;
+
+            // 5. Render Cookie Banner and make sure it is fully visible
+            const banner = document.getElementById('cookie-banner');
+            banner.innerHTML = demo.cookieBanner;
+            banner.style.opacity = '1';
+            banner.style.transform = 'translateY(0)';
+        }
+
+        function closeBanner() {
+            const banner = document.getElementById('cookie-banner');
+            banner.style.opacity = '0';
+            banner.style.transform = 'translateY(20px)';
+        }
+
+        // Run default view on initial bootup
+        window.onload = () => {
+            switchDemo('fintech');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+/* Created by Yezid — Twinvault */
+/* Earthy & Organic Design Tokens */
+:root {
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  
+  /* Earthy Palette */
+  --bg-sand: #f4f1ea;
+  --bg-cream: #fbf9f5;
+  --border-clay: #e0d7c7;
+  --text-charcoal: #2c2a27;
+  --text-muted: #736d64;
+  --accent-olive: #606c38;
+  --accent-olive-light: #ccd5ae;
+  --accent-terracotta: #bc6c25;
+  --accent-wheat: #dda15e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-sand);
+  color: var(--text-charcoal);
+  font-family: var(--font-body);
+  font-weight: 300;
+  padding: 24px;
+  min-height: 100vh;
+  position: relative;
+  line-height: 1.5;
+}
+
+.monospaced {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Organic Wrapper */
+.organic-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.organic-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.logo-leaf {
+  font-size: 2.2rem;
+}
+.brand-title {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 600;
+}
+.brand-tagline {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+.audit-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border-clay);
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: max-content;
+  margin: 16px auto 0;
+  background-color: var(--bg-cream);
+}
+
+/* Organic Cards (Shallow Matrix Layout) */
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.organic-card {
+  background-color: var(--bg-cream);
+  border: 2px solid var(--border-clay);
+  padding: 32px;
+  /* Organic fluid border curves (Anti-Grid) */
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 2px 8px 24px rgba(44, 42, 39, 0.04);
+}
+
+.organic-card h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.map-card {
+  grid-column: 1 / 2;
+}
+.did-card {
+  grid-column: 2 / 3;
+  border-radius: 30px 240px 40px 220px/210px 40px 200px 30px;
+}
+.manifesto-card {
+  grid-column: 1 / 3;
+  border-radius: 120px 20px 180px 30px/30px 140px 25px 120px;
+}
+
+/* SVG Vector Map styling */
+.map-vector-container {
+  position: relative;
+  background-color: var(--bg-sand);
+  border: 1.5px solid var(--border-clay);
+  border-radius: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+.vector-map-graphic {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+.map-node {
+  cursor: pointer;
+}
+.map-dot {
+  stroke: var(--bg-cream);
+  stroke-width: 3px;
+  transition: r 0.2s, fill 0.2s;
+}
+.map-node:hover .map-dot {
+  r: 18px;
+  fill: var(--accent-terracotta);
+}
+.map-label {
+  font-size: 0.65rem;
+  fill: var(--text-charcoal);
+  text-anchor: middle;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.map-node:hover .map-label {
+  opacity: 1;
+}
+
+.map-info-box {
+  margin-top: 16px;
+  padding: 12px;
+  border-left: 3px solid var(--accent-terracotta);
+  background-color: var(--bg-cream);
+  border-radius: 4px;
+}
+.map-info-box h4 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+}
+.map-info-box p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* DID generation controls */
+.did-form-group {
+  margin-bottom: 24px;
+}
+.did-form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.organic-input {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg-sand);
+  border: 1.5px solid var(--border-clay);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  color: var(--text-charcoal);
+}
+.organic-input:focus {
+  border-color: var(--accent-olive);
+}
+.organic-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  background-color: var(--accent-olive);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.organic-btn:hover {
+  background-color: var(--accent-terracotta);
+}
+
+.did-profile-badge {
+  background-color: var(--bg-sand);
+  border: 1.5px solid var(--border-clay);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.badge-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-clay);
+  padding-bottom: 6px;
+}
+.badge-head h4 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+}
+.did-details {
+  font-size: 0.75rem;
+  color: var(--text-charcoal);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.did-details .lbl {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.key-truncate {
+  word-break: break-all;
+}
+.export-btn {
+  margin-top: 14px;
+  background: none;
+  border: 1px solid var(--accent-olive);
+  color: var(--accent-olive);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.export-btn:hover {
+  background-color: var(--accent-olive-light);
+}
+
+/* Manifesto section */
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+}
+.italic-lead {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 12px;
+  color: var(--accent-terracotta);
+}
+.manifesto-text p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* P2P network diagram */
+.p2p-diagram {
+  background-color: var(--bg-sand);
+  border: 1.5px solid var(--border-clay);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.p2p-diagram h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+.diag-nodes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+.diag-node-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.node-emoji {
+  font-size: 1.8rem;
+}
+.node-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.hub-node .node-emoji {
+  animation: floatHub 3s infinite alternate ease-in-out;
+}
+@keyframes floatHub {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+.diag-arrow {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+.diag-caption {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* Ambient Floating Privacy Banner (Bottom Right Corner) */
+.ambient-indicator-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+.ambient-trigger-btn {
+  background-color: var(--bg-cream);
+  border: 2px solid var(--border-clay);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s;
+}
+.ambient-trigger-btn:hover {
+  transform: scale(1.08);
+}
+.badge-dot-off {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444; /* red for cookies deactivated */
+  border-radius: 50%;
+}
+.badge-dot-on {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #34c759; /* green for cookies active */
+  border-radius: 50%;
+}
+
+.ambient-expanded-card {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 300px;
+  background-color: var(--bg-cream);
+  border: 2px solid var(--border-clay);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  text-align: left;
+}
+.ambient-expanded-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+.ambient-expanded-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  border-top: 1px solid var(--border-clay);
+  padding-top: 10px;
+}
+.switch-row input {
+  accent-color: var(--accent-olive);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.status-note {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.text-highlight {
+  color: var(--accent-terracotta);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Footer */
+.organic-footer {
+  text-align: center;
+  border-top: 1px solid var(--border-clay);
+  padding-top: 24px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  .grid-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .map-card, .did-card, .manifesto-card {
+    grid-column: 1 / -1;
+  }
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+  }
+  .organic-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

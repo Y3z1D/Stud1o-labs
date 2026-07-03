@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TwinVault // High-End Collaborative Canvas</title>
+  <!-- Google Fonts Outfit for ultra-thin variable typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Container for the minimalist dashboard -->
+  <div class="app-layout">
+    
+    <!-- Left Navigation Bar (Resonant TwinVault style, ultra-thin line accents) -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>T W I N V A U L T</h1>
+        <span class="sub-brand">Zero-Trust Workspace</span>
+      </div>
+      
+      <nav class="nav-menu">
+        <button class="nav-item active" data-target="workspace-tab">Workspace</button>
+        <button class="nav-item" data-target="sandbox-tab">Zero-Trust Sandbox</button>
+        <button class="nav-item" data-target="privacy-tab">Privacy Charter</button>
+      </nav>
+
+      <div class="sidebar-status">
+        <div class="status-indicator-dot"></div>
+        <span class="status-text monospaced">Local RAM Execution</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top header showing server-side status (No Cookie Banner required) -->
+      <header class="top-bar">
+        <div class="tracking-badge monospaced">
+          <span class="badge-dot"></span> Zero-Footprint Tracking // No Cookie Banner Required
+        </div>
+        <div class="date-tag monospaced">
+          June, 2026 // Release 3.0.4-twinvault
+        </div>
+      </header>
+
+      <!-- TAB 1: Fluid Infinite Canvas Workspace -->
+      <section id="workspace-tab" class="tab-panel active">
+        <div class="tab-intro">
+          <h2>Fluid Canvas Workspace</h2>
+          <p class="thin-text">Double-click anywhere on the grid canvas to spawn text or code nodes. Drag items around freely. Changes are processed entirely in browser memory.</p>
+        </div>
+
+        <div class="canvas-controls">
+          <button id="add-text-node" class="canvas-btn">Add Note</button>
+          <button id="add-code-node" class="canvas-btn">Add Code Block</button>
+          <button id="clear-canvas-btn" class="canvas-btn danger-btn">Clear Canvas</button>
+        </div>
+
+        <!-- The Infinite Canvas Area -->
+        <div id="infinite-canvas" class="canvas-grid">
+          <!-- Dynamically spawned nodes -->
+          <div class="canvas-node text-node" style="left: 100px; top: 120px;" data-id="1">
+            <div class="node-header"><span class="node-title">Note Block #1</span><span class="node-close">&times;</span></div>
+            <textarea class="node-textarea" placeholder="Type thoughts here...">Hello! Drag me around the canvas. All of this remains in your browser's memory, isolated from external servers.</textarea>
+          </div>
+          
+          <div class="canvas-node code-node" style="left: 480px; top: 180px;" data-id="2">
+            <div class="node-header"><span class="node-title">Verification Code</span><span class="node-close">&times;</span></div>
+            <textarea class="node-textarea code-area monospaced" placeholder="Write sandboxed scripts...">const verifySession = () => {
+  const token = window.sessionMemoryToken;
+  console.log("Memory Secure: ", !!token);
+};</textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Zero-Trust Client Sandbox Monitor -->
+      <section id="sandbox-tab" class="tab-panel">
+        <div class="tab-intro">
+          <h2>Zero-Trust Client Isolation</h2>
+          <p class="thin-text">Our engine enforces standard sandbox boundaries, keeping authentication keys in memory registers instead of persistent disk files.</p>
+        </div>
+
+        <div class="sandbox-grid">
+          
+          <div class="sandbox-card">
+            <h3>Memory Register Security</h3>
+            <p>Session token isolation prevents cross-site script leakage. Values vanish if the tab is closed.</p>
+            <div class="security-readout">
+              <div class="readout-row">
+                <span>Memory Token State:</span>
+                <span id="token-status" class="status-active monospaced">IN_RAM_ONLY</span>
+              </div>
+              <div class="readout-row">
+                <span>LocalStorage Write Block:</span>
+                <span class="status-active monospaced">ACTIVE (0 bytes written)</span>
+              </div>
+              <div class="readout-row">
+                <span>SessionStorage Isolation:</span>
+                <span class="status-active monospaced">ENABLED</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sandbox-card">
+            <h3>Library Hash Attestation</h3>
+            <p>Verifies SHA-256 hashes of local client assets to guarantee core code has not been tampered with or modified.</p>
+            <div class="hash-list">
+              <div class="hash-row monospaced">
+                <span class="hash-name">index.html</span>
+                <span class="hash-val">SHA256: d8d7e9...b1a2</span>
+              </div>
+              <div class="hash-row monospaced">
+                <span class="hash-name">style.css</span>
+                <span class="hash-val">SHA256: 3c4d5e...f9a8</span>
+              </div>
+              <div class="hash-row monospaced">
+                <span class="hash-name">app.js</span>
+                <span class="hash-val">SHA256: a1b2c3...d4e5</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sandbox-card full-width">
+            <h3>Session Encryption & Shredding</h3>
+            <p>Ready to depart? Shredding wipes all memory registries, shreds canvas elements, and deletes volatile variables instantly.</p>
+            <div class="shredder-zone">
+              <button id="shred-btn" class="shred-btn-large">Shred Session Memory</button>
+              <div id="shred-animation-container" class="shred-animation-container hidden">
+                <div class="shredder-mouth"></div>
+                <div class="paper-feed">
+                  <div class="shred-lines"></div>
+                </div>
+              </div>
+              <span id="shred-status" class="monospaced">Standby - Session Active</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TAB 3: Privacy Charter & Manifest -->
+      <section id="privacy-tab" class="tab-panel">
+        <div class="tab-intro">
+          <h2>Zero-Retention Processing Model</h2>
+          <p class="thin-text">We process, we never store. Your productivity data is ephemeral.</p>
+        </div>
+
+        <div class="manifesto-card">
+          <h3>The TwinVault Transparency Mandate</h3>
+          <p class="manifesto-para">
+            Traditional tools harvest content, metadata, and writing behaviors. TwinVault rejects this paradigm. 
+            By designing an architecture that executes entirely client-side, we bypass the need for centralized processing servers. 
+            Your thoughts, documents, and assets are strictly yours.
+          </p>
+
+          <div class="opt-in-controls">
+            <h3>Telemetry & Diagnostics</h3>
+            <p class="sub-text">By default, all crash reporting and telemetry is strictly turned Off. Toggle to opt-in.</p>
+            
+            <div class="opt-row">
+              <label class="checkbox-container">
+                <input type="checkbox" id="opt-telemetry">
+                <span class="checkbox-label">Transmit anonymous performance metrics (Opt-in)</span>
+              </label>
+            </div>
+            <div class="opt-row">
+              <label class="checkbox-container">
+                <input type="checkbox" id="opt-crash">
+                <span class="checkbox-label">Transmit cryptographic crash dumps (Opt-in)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="twinvault-footer">
+    <div>TwinVault // Zero-Trust Workspace // June, 2026</div>
+    <div class="attribution">Created by Yezid — TwinVault</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

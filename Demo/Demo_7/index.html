@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwinVault Technologies | Interactive Design & Compliance Architecture Demo</title>
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts for diverse typography styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700&display=swap" rel="stylesheet">
+    <style>
+        .sandbox-canvas { transition: all 0.4s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col">
+
+    <!-- DEMO HEADER & PRESENTATION CONTROLS -->
+    <header class="bg-slate-900 border-b border-slate-800 p-6 sticky top-0 z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                    <span class="flex h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                    TwinVault Technologies Live Framework Showcase
+                </h1>
+                <p class="text-xs text-slate-400 mt-1">Engineered by yezid. Click the architectural modes below to preview design, advanced security configurations, and Australian regulatory compliance environments.</p>
+            </div>
+             
+            <!-- CONTROLLER TABS -->
+            <nav class="flex flex-wrap gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                <button onclick="switchDemo('minimalist')" id="btn-minimalist" class="px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 text-white transition-all cursor-pointer">
+                    1. Minimalist UI Layout
+                </button>
+                <button onclick="switchDemo('security')" id="btn-security" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer">
+                    2. Advanced Cyber Security Shield
+                </button>
+                <button onclick="switchDemo('compliance')" id="btn-compliance" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer">
+                    3. Australian Privacy Grid
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN DISPLAY CONTENT -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 flex flex-col gap-8">
+        
+        <!-- LIVE ARCHITECTURE INFO BADGES -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 bg-slate-900/50 border border-slate-800/80 p-4 rounded-xl">
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Design Structure</span>
+                <span id="meta-structure" class="text-sm font-medium text-slate-200">—</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Active Security Shield</span>
+                <span id="meta-security" class="text-sm font-medium text-slate-200">—</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Privacy Framework</span>
+                <span id="meta-privacy" class="text-sm font-medium text-slate-200">—</span>
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Performance Metric</span>
+                <span id="meta-cookies" class="text-sm font-medium text-slate-200">—</span>
+            </div>
+        </section>
+
+        <!-- THE LIVE INTERACTIVE CONTAINER -->
+        <section id="sandbox" class="sandbox-canvas flex-1 min-h-[520px] rounded-2xl border p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+            
+            <!-- INSIDE: Theme Content Engine -->
+            <div id="demo-body" class="max-w-3xl space-y-6 w-full">
+                <!-- Dynamic Content Loaded Here via JavaScript -->
+            </div>
+
+            <!-- INSIDE: Dynamic Contextual Security Widget -->
+            <div id="security-widget" class="mt-12 max-w-md bg-slate-950/80 border border-slate-800 p-4 rounded-xl backdrop-blur-md w-full">
+                <!-- Dynamic Content Loaded Here -->
+            </div>
+
+            <!-- INSIDE: Dynamic Cookie Consent Banner Simulation -->
+            <div id="cookie-banner" class="absolute bottom-6 left-6 right-6 max-w-xl mx-auto shadow-2xl z-40 transition-all duration-300">
+                <!-- Dynamic Content Loaded Here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- SAFE BRAND FOOTER -->
+    <footer class="bg-slate-900 border-t border-slate-800 p-4 text-center text-xs text-slate-500 font-mono">
+        &copy; 2026 TwinVault Technologies. All rights reserved. System architecture deployed by yezid.
+    </footer>
+
+    <!-- LIVE SWITCHING LOGIC SCRIPT -->
+    <script>
+        const demos = {
+            minimalist: {
+                canvasClass: "bg-zinc-50 border-zinc-200 text-zinc-900 font-['Plus_Jakarta_Sans'] shadow-inner",
+                structure: "TwinVault Minimalist (3-Section Architecture)",
+                security: "Form Hardening & Origin Lock Configured",
+                privacy: "Asset Integrity Shield Active",
+                cookies: "Core Web Vitals: 100% Mobile Ready",
+                body: `
+                    <div class="flex justify-between items-center border-b border-zinc-200 pb-4 mb-6">
+                        <span class="text-sm font-extrabold tracking-wider text-zinc-900">TWINVAULT</span>
+                        <nav class="flex gap-6 text-xs font-semibold text-zinc-600">
+                            <a href="#about" onclick="alert('Navigating to About section')" class="hover:text-zinc-900 transition-colors">ABOUT US</a>
+                            <a href="#services" onclick="alert('Navigating to Services section')" class="hover:text-zinc-900 transition-colors">SERVICES</a>
+                            <a href="#contact" onclick="alert('Navigating to Contact section')" class="hover:text-zinc-900 transition-colors">CONTACT US</a>
+                        </nav>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-1.5 text-zinc-400 text-xs font-semibold tracking-wide uppercase">
+                            <span class="w-2 h-2 rounded-full bg-zinc-900"></span> Premium Corporate Consultation
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-light tracking-tight text-zinc-900 leading-tight">Elevating strategy through minimalist design.</h2>
+                        <p class="text-zinc-500 max-w-xl text-sm leading-relaxed font-sans">A highly refined digital asset built specifically for your consulting operations. Designed by yezid with deliberate whitespace, elite typography, and distraction-free elements to capture and hold premium corporate leads.</p>
+                        <div class="pt-2">
+                            <button class="bg-zinc-900 text-white hover:bg-zinc-800 text-xs font-medium tracking-wider uppercase px-6 py-3 rounded shadow transition-all cursor-pointer">Explore Our Services</button>
+                        </div>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="flex items-start gap-3 bg-white border border-zinc-200 p-4 rounded-lg shadow-sm">
+                        <div class="text-zinc-400 text-lg">💡</div>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-400">TwinVault UI Execution</h4>
+                            <p class="text-xs font-medium text-zinc-800 mt-0.5">Optimized Semantic HTML Layout</p>
+                            <p class="text-[11px] text-zinc-500 mt-0.5">Mobile-first CSS breakpoint tracking verifies 100% responsiveness on smartphones and large screens alike.</p>
+                        </div>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-zinc-900 text-white p-3 px-5 rounded-full shadow-xl flex items-center justify-between gap-6 max-w-md mx-auto">
+                        <div class="text-[11px] text-zinc-400">⚡ Layout View Mode: <strong>Interactive Wireframe</strong></div>
+                        <button onclick="closeBanner()" class="text-[10px] uppercase font-bold text-zinc-900 tracking-widest bg-white px-3 py-1 rounded transition-colors hover:bg-zinc-200 cursor-pointer">Dismiss</button>
+                    </div>
+                `
+            },
+            security: {
+                canvasClass: "bg-slate-950 border-red-500/30 text-slate-100 font-mono",
+                structure: "Hardened TwinVault Core Environment",
+                security: "Sophisticated Anti-Intrusion Firewall [ACTIVE]",
+                privacy: "Encrypted Contact Sanitization Layers",
+                cookies: "Threat Block Vector Rate: 100%",
+                body: `
+                    <div class="inline-flex items-center gap-2 bg-red-500/10 text-red-400 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase border border-red-500/20">
+                        <span class="h-2 w-2 rounded-full bg-red-500 animate-ping"></span> Threat Assessment Monitoring
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tight text-white uppercase">Advanced Infrastructure Protection</h2>
+                    <p class="text-slate-400 font-sans leading-relaxed text-sm max-w-xl">Modern hackers play brutal. To protect your corporate reputation, business data, and client assets, the TwinVault deployment incorporates server-side security layers designed to automatically neutralize exploitation attempts.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-sans">
+                        <div class="p-3 bg-slate-900 border border-slate-800 rounded-lg">
+                            <span class="text-xs font-bold text-red-400 block mb-1">✓ Form Tokenization (CSRF)</span>
+                            <span class="text-xs text-slate-400">Completely halts malicious script injections via contact entry points.</span>
+                        </div>
+                        <div class="p-3 bg-slate-900 border border-slate-800 rounded-lg">
+                            <span class="text-xs font-bold text-red-400 block mb-1">✓ Cloudflare Edge Guard</span>
+                            <span class="text-xs text-slate-400">Filters rogue scrapers and massive automated botnets before they reach the server.</span>
+                        </div>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="border border-red-500/20 bg-slate-900/80 p-4 rounded-xl">
+                        <span class="text-red-400 font-bold text-xs flex items-center gap-2">
+                            <span>🛑</span> TWINVAULT FIREWALL CORE LOG
+                        </span>
+                        <p class="text-[11px] font-mono text-emerald-400 mt-2">> Request Source: Encrypted CORS Check Passed</p>
+                        <p class="text-[10px] text-slate-500 font-sans mt-1">Brutal brute-force matrix engines blocked. Client database records completely isolated from external runtime vulnerabilities by yezid.</p>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-red-950/90 border border-red-500/40 p-3 rounded-xl text-center text-xs tracking-wide text-red-300 font-bold max-w-xl mx-auto">
+                        ⚠️ HARDENED PROTOCOL LAYER: Continuous automated validation shielding user information.
+                    </div>
+                `
+            },
+            compliance: {
+                canvasClass: "bg-slate-900 border-indigo-500/30 text-slate-100 font-sans",
+                structure: "Australian Government Regulatory Framework",
+                security: "Sovereign Audit Mapping Enabled",
+                privacy: "Compliant Data Governance Architecture",
+                cookies: "Strict Compliance Framework Checked",
+                body: `
+                    <div class="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase border border-indigo-500/20">Legal & Ethical Protection</div>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans']">Valuable Corporate Compliance Asset</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm max-w-xl font-light">Aligning your consulting business with Australian digital regulations protects your enterprise from severe legal and ethical liabilities. TwinVault architectures turn your website into an official, highly trusted institutional asset.</p>
+                    
+                    <div class="bg-slate-950 p-4 border border-slate-800 rounded-xl space-y-2">
+                        <h3 class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Built-In Regulatory Features:</h3>
+                        <ul class="text-xs text-slate-400 space-y-2 font-mono list-disc list-inside">
+                            <li>Privacy Act Structure alignment for safe customer data management.</li>
+                            <li>Compliant Terms of Service layout architecture.</li>
+                            <li>Transparent, cookie-management framework with tracking script blocking capabilities.</li>
+                        </ul>
+                    </div>
+                `,
+                securityWidget: `
+                    <div class="flex items-start gap-3 bg-slate-950 border border-indigo-500/20 p-4 rounded-xl">
+                        <div class="p-2 bg-indigo-500/10 rounded-lg text-indigo-400 text-xs">⚖️</div>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Legal Benefit Statement</h4>
+                            <p class="text-xs font-medium text-slate-200 mt-1">Ethical Framework Architecture</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Ensures clear consumer transparent workflows. Safeguards your enterprise from compliance investigations and administrative penalties.</p>
+                        </div>
+                    </div>
+                `,
+                cookieBanner: `
+                    <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border-l-4 border-l-indigo-500">
+                        <div class="text-xs text-slate-400 max-w-sm"><strong>Australian Compliance Engine:</strong> Tracking mechanisms are thoroughly restricted until explicit client confirmation policies are executed.</div>
+                        <div class="flex gap-2 shrink-0">
+                            <button onclick="closeBanner()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-4 py-2 rounded transition-colors cursor-pointer">Accept Terms</button>
+                            <button onclick="closeBanner()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs px-4 py-2 rounded transition-colors cursor-pointer">Decline</button>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function switchDemo(key) {
+            const demo = demos[key];
+            const sandbox = document.getElementById('sandbox');
+            
+            // 1. Reset and Update Active Button Highlights
+            ['minimalist', 'security', 'compliance'].forEach(k => {
+                const btn = document.getElementById(`btn-${k}`);
+                if (k === key) {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 text-white transition-all cursor-pointer";
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer";
+                }
+            });
+
+            // 2. Clear old CSS canvas styles, then inject new ones
+            sandbox.className = "sandbox-canvas flex-1 min-h-[520px] rounded-2xl border p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl " + demo.canvasClass;
+            
+            // 3. Inject Content Templates
+            document.getElementById('demo-body').innerHTML = demo.body;
+            document.getElementById('security-widget').innerHTML = demo.securityWidget;
+            
+            // 4. Update Header Meta Labels
+            document.getElementById('meta-structure').innerText = demo.structure;
+            document.getElementById('meta-security').innerText = demo.security;
+            document.getElementById('meta-privacy').innerText = demo.privacy;
+            document.getElementById('meta-cookies').innerText = demo.cookies;
+
+            // 5. Render Cookie Banner and make sure it is fully visible
+            const banner = document.getElementById('cookie-banner');
+            banner.innerHTML = demo.cookieBanner;
+            banner.style.opacity = '1';
+            banner.style.transform = 'translateY(0)';
+        }
+
+        function closeBanner() {
+            const banner = document.getElementById('cookie-banner');
+            banner.style.opacity = '0';
+            banner.style.transform = 'translateY(20px)';
+        }
+
+        // Run default view on initial bootup
+        window.onload = () => {
+            switchDemo('minimalist');
+        };
+    </script>
+</body>
+</html>
